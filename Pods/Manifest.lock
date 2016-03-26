@@ -1,0 +1,15 @@
+PODS:
+  - FBSDKCoreKit (4.10.1):
+    - Bolts (~> 1.5)
+  - FBSDKTVOSKit (4.10.1):
+    - FBSDKCoreKit (~> 4.10.1)
+
+DEPENDENCIES:
+  - FBSDKCoreKit
+  - FBSDKTVOSKit
+
+SPEC CHECKSUMS:
+  FBSDKCoreKit: d2aaed5e9ab7d8d6301c533376a1fbff1cf3deb5
+  FBSDKTVOSKit: 5b36704ae48be0c6b170fdd1e699900a9e8c87a5
+
+COCOAPODS: 0.39.0

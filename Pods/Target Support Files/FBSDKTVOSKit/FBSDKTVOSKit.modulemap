@@ -1,0 +1,6 @@
+framework module FBSDKTVOSKit {
+  umbrella header "FBSDKTVOSKit-umbrella.h"
+
+  export *
+  module * { export * }
+}
