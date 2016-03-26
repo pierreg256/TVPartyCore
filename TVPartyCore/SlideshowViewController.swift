@@ -24,6 +24,8 @@ public class SlideshowViewController : UIViewController {
     var timer:NSTimer?
     var curPhotoIndex=0
     var curPhotoNumber=0
+    var imageLibrary:ImageLibrary?
+    
     
     private func maxXforDepth(depth:CGFloat) -> CGFloat {
         let xFov = DEFAULT_YFOV * sceneView.frame.width / sceneView.frame.height
@@ -74,15 +76,19 @@ public class SlideshowViewController : UIViewController {
             shiftLeft(plane)
             sceneView.scene?.rootNode.addChildNode(plane)
 
-            curPhotoIndex++
+            curPhotoIndex += 1
             if (curPhotoIndex>=images.count) {
                 curPhotoIndex = 0
             }
-            curPhotoNumber++
+            curPhotoNumber += 1
         }
         if (curPhotoNumber>DEFAULT_MAX_PHOTOS) {
             timer?.invalidate()
         }
+    }
+    
+    func updateImageLibrary() {
+
     }
     
     private func setup(withAnmiation animation:Bool) {
@@ -139,12 +145,14 @@ public class SlideshowViewController : UIViewController {
         sceneView.scene?.rootNode.addChildNode(light)
         
         // go fetch the images
-        for (var i=1; i<5; i++){
-            images.append(UIImage(named: "IMG_0\(i).jpg")!)
-        }
+        //for i in 1 ..< 5 {
+        //    images.append(UIImage(named: "IMG_0\(i).jpg")!)
+        //}
         
         // Start the photo emitter
-        timer = NSTimer.scheduledTimerWithTimeInterval( 5, target: self, selector: Selector("emitNextPhoto"), userInfo: nil, repeats: true)
+        let credentialsProvider = AWSServiceManager.defaultServiceManager().defaultServiceConfiguration.credentialsProvider as! AWSCognitoCredentialsProvider
+        imageLibrary = ImageLibrary(withPartyId: credentialsProvider.identityId)
+        timer = NSTimer.scheduledTimerWithTimeInterval( 5, target: self, selector: #selector(SlideshowViewController.emitNextPhoto), userInfo: nil, repeats: true)
     }
     
     override public func viewDidLoad() {
@@ -152,28 +160,5 @@ public class SlideshowViewController : UIViewController {
         
         setup(withAnmiation: false)
         
-        /*
-        for (var i=1;i<5;i++){
-            let image = UIImage(named: "IMG_0\(i).jpg")
-            var width=CGFloat(8)
-            var height=CGFloat(8)
-            if (image?.size.height > image?.size.width) {
-                height = height * image!.size.height / image!.size.width
-            } else {
-                width = width * image!.size.width / image!.size.height
-            }
-            let planeGeometry =  SCNPlane(width: width , height: height)
-            let planeMaterial = SCNMaterial()
-            planeMaterial.diffuse.contents = image //UIImage(named: "IMG_0\(i).jpg")//UIColor.redColor()
-            planeMaterial.doubleSided=true
-            planeGeometry.materials = [planeMaterial]
-            let plane = SCNNode(geometry: planeGeometry)
-            plane.position = SCNVector3(x: Float(arc4random_uniform(30))-15, y: Float(arc4random_uniform(6))+4, z: Float(arc4random_uniform(30))-15)
-            plane.eulerAngles.x = Float(-M_PI_4/4)
-            //plane.runAction(SCNAction.rotateByX(0, y: 0.5, z: 0, duration: 1))
-            shiftLeft(plane)
-            sceneView.scene?.rootNode.addChildNode(plane)
-        }
-        */
     }
 }

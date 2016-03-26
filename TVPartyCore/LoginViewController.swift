@@ -73,14 +73,6 @@ public class LoginViewController : UIViewController, FBSDKDeviceLoginButtonDeleg
 
         print("Identity id : \(credentialsProvider.identityId)")
         
-        let s3 = AWSS3.defaultS3()
-        let request = AWSS3ListObjectsRequest()
-        request.bucket = AWS_USER_FILE_MANAGER_S3_BUCKET_NAME
-        request.prefix = "\(credentialsProvider.identityId)/"
-        s3.listObjects(request) { (output:AWSS3ListObjectsOutput?, error:NSError?) -> Void in
-            print("error: \(error)")
-            print(output)
-        }
 
         let transferUtility = AWSS3TransferUtility.defaultS3TransferUtility()
         transferUtility.downloadDataFromBucket(AWS_USER_FILE_MANAGER_S3_BUCKET_NAME, key: "maclef", expression: nil) { (task:AWSS3TransferUtilityDownloadTask , url:NSURL?, data:NSData?, error:NSError?) -> Void in

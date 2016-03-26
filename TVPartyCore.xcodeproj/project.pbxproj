@@ -130,6 +130,7 @@
 		AC6B8E391CA571CB001BE2C6 /* AWSS3Service.m in Sources */ = {isa = PBXBuildFile; fileRef = AC6B8E301CA571CB001BE2C6 /* AWSS3Service.m */; };
 		AC6B8E3A1CA571CB001BE2C6 /* AWSS3TransferManager.m in Sources */ = {isa = PBXBuildFile; fileRef = AC6B8E321CA571CB001BE2C6 /* AWSS3TransferManager.m */; };
 		AC6B8E3B1CA571CB001BE2C6 /* AWSS3TransferUtility.m in Sources */ = {isa = PBXBuildFile; fileRef = AC6B8E341CA571CB001BE2C6 /* AWSS3TransferUtility.m */; };
+		C807AB4E1CA6BD29009970D3 /* ImageLibrary.swift in Sources */ = {isa = PBXBuildFile; fileRef = C807AB4D1CA6BD29009970D3 /* ImageLibrary.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -429,6 +430,7 @@
 		AC6B8E331CA571CB001BE2C6 /* AWSS3TransferUtility.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = AWSS3TransferUtility.h; sourceTree = "<group>"; };
 		AC6B8E341CA571CB001BE2C6 /* AWSS3TransferUtility.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = AWSS3TransferUtility.m; sourceTree = "<group>"; };
 		AC6B8E351CA571CB001BE2C6 /* module.modulemap */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = "sourcecode.module-map"; path = module.modulemap; sourceTree = "<group>"; };
+		C807AB4D1CA6BD29009970D3 /* ImageLibrary.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ImageLibrary.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -504,6 +506,7 @@
 				AC643FCF1C9C144300C5BCB2 /* MonBridgingHeader.h */,
 				AC643FD61C9FFA1B00C5BCB2 /* LoginViewController.swift */,
 				AC643FDA1CA0400600C5BCB2 /* SlideshowViewController.swift */,
+				C807AB4D1CA6BD29009970D3 /* ImageLibrary.swift */,
 			);
 			path = TVPartyCore;
 			sourceTree = "<group>";
@@ -1134,6 +1137,7 @@
 				AC6B8E0A1CA432FB001BE2C6 /* AWSMobileAnalyticsDefaultDeliveryClient.m in Sources */,
 				AC643F941C9C13EB00C5BCB2 /* AWSCognitoIdentityResources.m in Sources */,
 				AC643F8A1C9C13EB00C5BCB2 /* AWSIdentityProvider.m in Sources */,
+				C807AB4E1CA6BD29009970D3 /* ImageLibrary.swift in Sources */,
 				AC643FCE1C9C13EB00C5BCB2 /* AWSXMLWriter.m in Sources */,
 				AC3759711C902A690017CEA1 /* InfiniteCaroussel.swift in Sources */,
 				AC643FAD1C9C13EB00C5BCB2 /* NSValueTransformer+AWSMTLInversionAdditions.m in Sources */,
