@@ -10,6 +10,15 @@ import UIKit
 import FBSDKCoreKit
 import FBSDKTVOSKit
 
+
+public func PGTLog<T>(object: T, filename: String = #file, line: Int = #line, funcname: String = #function) {
+    let dateFormatter = NSDateFormatter()
+    dateFormatter.dateFormat = "MM/dd/yyyy HH:mm:ss:SSS"
+    let process = NSProcessInfo.processInfo()
+    let threadId = "?"
+    print("\(dateFormatter.stringFromDate(NSDate())) \(process.processName))[\(process.processIdentifier):\(threadId)] \(NSURL(string:filename)!.lastPathComponent)(\(line)) \(funcname):\r\t\(object)")
+}
+
 @UIApplicationMain
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
